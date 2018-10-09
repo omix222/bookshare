@@ -1,4 +1,4 @@
-package demo.entity;
+package webapp.controller.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
