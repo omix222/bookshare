@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+group = 'demoAppProvider'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	 maven {
+        url 'https://repo.spring.io/libs-release'
+    }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	runtime('com.h2database:h2')
+	
+	//For RestAPIドキュメント生成（Spring-fox）
+	compile "io.springfox:springfox-swagger2:2.2.2"
+    compile "io.springfox:springfox-swagger-ui:2.2.2"
+	compile('io.springfox:springfox-data-rest:2.7.0')
+
+//	compile('io.springfox:springfox-swagger2:2.7.0')
+//	compile('io.springfox:springfox-data-rest:2.9.0')
+//	compile('io.springfox:springfox-swagger-ui:2.7.0')
+	compile "com.google.guava:guava:17.0"
+	
+	compile 'org.springframework.data:spring-data-rest-webmvc'
+}
+
