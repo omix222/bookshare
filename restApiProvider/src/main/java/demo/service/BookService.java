@@ -14,7 +14,7 @@ public class BookService {
 	BookRepository repository;
 	
 	public Book getBook(String id) {
-		return repository.getOne(id);
+		return repository.findById(id).get();
 	}
 	
 	public List<Book> getBooks(){
@@ -23,12 +23,12 @@ public class BookService {
 	
 	public Book addBook(Book book) {
 		repository.save(book);
-		return repository.getOne(book.getId());
+		return repository.findById(book.getId()).get();
 	}
 	
 	public Book updateBook(Book book) {
 		repository.save(book);
-		return repository.getOne(book.getId());
+		return repository.findById(book.getId()).get();
 	}
 	public void deleteBook(String id) {
 		repository.deleteById(id);

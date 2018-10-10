@@ -30,7 +30,7 @@ public class BookRestControler {
 		return bookService.getBooks();
 	}
 
-	@GetMapping(path = "{id}")
+	@GetMapping(path = "/{id}")
 	public Book getBook(@PathVariable String id) {
 		return bookService.getBook(id);
 	}

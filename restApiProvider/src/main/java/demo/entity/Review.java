@@ -16,7 +16,7 @@ public class Review {
 	private String id;
 
 	private String bookId;
-	private Long reviewerId;
+	private String reviewerId;
 	private String comment;
 	private Date reviewDate;
 	public String getId() {
@@ -31,10 +31,10 @@ public class Review {
 	public void setBookId(String bookId) {
 		this.bookId = bookId;
 	}
-	public Long getReviewerId() {
+	public String getReviewerId() {
 		return reviewerId;
 	}
-	public void setReviewerId(Long reviewerId) {
+	public void setReviewerId(String reviewerId) {
 		this.reviewerId = reviewerId;
 	}
 	public String getComment() {
