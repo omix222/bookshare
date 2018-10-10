@@ -19,7 +19,7 @@
 	- Driver Class, User Name, Passwordはapplication.propertiesに記載の内容を設定する
 		- デフォルトの設定は、それぞれ、org.h2.Driver,user,pass
 	- JDBC URLについては、以下を参考にh2コロンのあとはSTSプロジェクト直下のtestdb.mv.dbのパスの拡張子無しの形で設定する
-		- 例：　jdbc:h2:~/oper/spring-study-sample/immem/spring-study-sample/testdb
+		- 例：　jdbc:h2:~/oper/spring/bookshare/restApiProvider/testdb
 
 - H2コンソール上から、以下SQLを実行し、データを投入する
 
