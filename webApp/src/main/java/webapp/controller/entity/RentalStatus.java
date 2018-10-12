@@ -12,9 +12,18 @@ public class RentalStatus {
 	@Id
 	private String id;
 	private String bookId;
-	private Long ownerUserId;
-	private Long lentalUserId;
+	private String lentalUserId;
 	private String status;
+	public  RentalStatus() {
+		super();
+	}
+	public RentalStatus(String id, String bookId, String lentalUserId, String status) {
+		super();
+		this.id = id;
+		this.bookId = bookId;
+		this.lentalUserId = lentalUserId;
+		this.status = status;
+	}
 	public String getId() {
 		return id;
 	}
@@ -27,16 +36,10 @@ public class RentalStatus {
 	public void setBookId(String bookId) {
 		this.bookId = bookId;
 	}
-	public Long getOwnerUserId() {
-		return ownerUserId;
-	}
-	public void setOwnerUserId(Long ownerUserId) {
-		this.ownerUserId = ownerUserId;
-	}
-	public Long getLentalUserId() {
+	public String getLentalUserId() {
 		return lentalUserId;
 	}
-	public void setLentalUserId(Long lentalUserId) {
+	public void setLentalUserId(String lentalUserId) {
 		this.lentalUserId = lentalUserId;
 	}
 	public String getStatus() {

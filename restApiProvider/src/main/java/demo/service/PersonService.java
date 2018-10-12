@@ -14,7 +14,7 @@ public class PersonService {
 	PersonRepository repository;
 	
 	public Person getPerson(String id) {
-		return repository.getOne(id);
+		return repository.findById(id).get();
 	}
 	
 	public List<Person> getPersons(){
@@ -23,12 +23,12 @@ public class PersonService {
 	
 	public Person addPerson(Person person) {
 		repository.save(person);
-		return repository.getOne(person.getId());
+		return repository.findById(person.getId()).get();
 	}
 	
 	public Person updatePerson(Person person) {
 		repository.save(person);
-		return repository.getOne(person.getId());
+		return repository.findById(person.getId()).get();
 	}
 	public void deletePerson(String id) {
 		repository.deleteById(id);

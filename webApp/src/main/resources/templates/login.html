@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>login</title>
+</head>
+<body>
+<h1>login</h1>
+<form action="#" th:action="@{/login}" method="post">
+	<p>ユーザー: <input type="text" name="user" /></p>
+	<p>パスワード: <input type="password" name="password" /></p>
+	<p><input type="submit" value="ログイン" /></p>
+</form>
+<div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null">
+	last exception: <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+</div>
+</body>
+</html>

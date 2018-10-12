@@ -9,6 +9,7 @@
 				<td>Author</td>
 				<td>Tags</td>
 				<td>Publisher</td>
+				<td>Status</td>
 		</tr></thead>
 		<tbody th:each="book : ${booklist}"><tr>
 				<td th:text="${book.id}">dummy ID</td>
@@ -16,6 +17,7 @@
 				<td th:text="${book.author}">dummy Author</td>
 				<td th:text="${book.tags}">dummy Tags</td>
 				<td th:text="${book.publisher}">dummy Publisher</td>
+				<td th:text="${book.status}">dummy Status</td>
 		</tr></tbody>
 	</table>
 </body>

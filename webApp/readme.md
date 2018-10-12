@@ -18,3 +18,5 @@
 	- http://localhost:8081/booklist
 - 書籍登録画面
 	- http://localhost:8081/bookinput
+- ログイン後のブラウザで強制ログアウトするURL
+	- http://localhost:8081/login?logout

@@ -17,17 +17,19 @@ public class Book {
 	private String author;
 	private String tags;
 	private String publisher;
+	private String status;
 	
 	public Book() {
 		super();
 	}
-	public Book(String id, String title, String author, String tags, String publisher) {
+	public Book(String id, String title, String author, String tags, String publisher, String status) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.tags = tags;
 		this.publisher = publisher;
+		this.status = status;
 	}
 	public String getId() {
 		return id;
@@ -58,6 +60,12 @@ public class Book {
 	}
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

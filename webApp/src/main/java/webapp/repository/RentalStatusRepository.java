@@ -8,5 +8,6 @@ import webapp.controller.entity.RentalStatus;
 
 @Repository
 public interface RentalStatusRepository extends JpaRepository<RentalStatus,String>{
+	
 }
 
