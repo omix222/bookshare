@@ -12,26 +12,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import webapp.controller.entity.Book;
-import webapp.controller.entity.RentalStatus;
+import webapp.controller.entity.StockForm;
 import webapp.service.BookService;
-import webapp.service.RentalStatusService;
+import webapp.service.StockService;
 
 @Controller
 public class BookController {
 	
 	@Autowired
 	BookService bookService;
+	@Autowired
+	StockService stockService;
 	
 	@Autowired
-	RentalStatusService rentalStatusService;
+	StockService rentalStatusService;
 	
+	@RequestMapping("/stocklist")
+	public String getStocks(Model model) {
+		List<StockForm> resultList = null;
+		resultList = stockService.getStocks();
+		model.addAttribute("booklist", resultList);
+		return "stocklist";
+	}
 	@RequestMapping("/booklist")
-	public String getEmployeelist(Model model) {
+	public String getBooks(Model model) {
 		List<Book> resultList = null;
-		resultList = bookService.getBook();
+		resultList = bookService.getBooks();
 		model.addAttribute("booklist", resultList);
 		return "booklist";
 	}
+	
 	@GetMapping("/bookinput")
 	public String getRegistView(Model model) {
 		return "bookregist";
@@ -49,21 +59,8 @@ public class BookController {
 	}
 	@GetMapping(path = "/bookrental/{id}")
 	public String rentalBook(@PathVariable String id) {
-		
-		return "redirect:booklist";
-	}
-	@GetMapping(path = "/bookini")
-	public String initialData() {
-		RentalStatus status1 = new RentalStatus("1", "book001", "1", "rentaled");
-		RentalStatus status2 = new RentalStatus("2", "book002", "1", "rentaled");
-		RentalStatus status3 = new RentalStatus("3", "book003", "2", "free");
-		RentalStatus status5 = new RentalStatus("5", "book005", "2", "free");
-		
-		rentalStatusService.addRentalStatus(status1);
-		rentalStatusService.addRentalStatus(status2);
-		rentalStatusService.addRentalStatus(status3);
-		rentalStatusService.addRentalStatus(status5);
-		return "redirect:booklist";
+		stockService.changeStatus(id);
+		return "redirect:/stocklist";
 	}
 	
 }

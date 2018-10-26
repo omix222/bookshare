@@ -3,48 +3,57 @@ package webapp.controller.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 /**
- * 貸し出し情報に関するエンティティ.
+ * 管理対象に関するエンティティ.
  *
  */
 @Entity	
-public class RentalStatus {
+public class Stock {
 
 	@Id
 	private String id;
-	private String bookId;
+	private String targetId;
+	private String place;
 	private String lentalUserId;
 	private String status;
-	public  RentalStatus() {
+	public  Stock() {
 		super();
 	}
-	public RentalStatus(String id, String bookId, String lentalUserId, String status) {
-		super();
-		this.id = id;
-		this.bookId = bookId;
-		this.lentalUserId = lentalUserId;
-		this.status = status;
-	}
+
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getBookId() {
-		return bookId;
+
+	public String getTargetId() {
+		return targetId;
 	}
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
+
+	public void setTargetId(String targetId) {
+		this.targetId = targetId;
 	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
 	public String getLentalUserId() {
 		return lentalUserId;
 	}
+
 	public void setLentalUserId(String lentalUserId) {
 		this.lentalUserId = lentalUserId;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}

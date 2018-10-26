@@ -9,13 +9,21 @@
 				<td>Author</td>
 				<td>Tags</td>
 				<td>Publisher</td>
+				<td>Place</td>
+				<td>LentalUserId</td>
+				<td>Status</td>
+				<td>Lental</td>
 		</tr></thead>
 		<tbody th:each="book : ${booklist}"><tr>
 				<td th:text="${book.id}">dummy ID</td>
-				<td th:text="${book.title}">dummy Title</td>
+				<td th:text="${book.targetName}">dummy TargetName</td>
 				<td th:text="${book.author}">dummy Author</td>
 				<td th:text="${book.tags}">dummy Tags</td>
 				<td th:text="${book.publisher}">dummy Publisher</td>
+				<td th:text="${book.place}">dummy Place</td>
+				<td th:text="${book.lentalUserId}">dummy LentalUserId</td>
+				<td th:text="${book.status}">dummy Status</td>
+				<td><a th:href="@{'/bookrental/' + ${book.id}}">Change Status</a></td>
 		</tr></tbody>
 	</table>
 </body>
