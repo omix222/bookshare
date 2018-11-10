@@ -1,0 +1,131 @@
+{
+  "defaultEnv": "default",
+  "environments": {
+    "default": {
+      "machines": {
+        "db": {
+          "attributes": {
+            "memoryLimitBytes": "1073741824"
+          },
+          "servers": {
+            "mysql": {
+              "attributes": {},
+              "port": "3306",
+              "protocol": "tcp"
+            }
+          },
+          "volumes": {},
+          "installers": [
+            "org.eclipse.che.exec",
+            "org.eclipse.che.terminal"
+          ],
+          "env": {
+            "CHE_MACHINE_NAME": "db"
+          }
+        },
+        "dev-machine": {
+          "attributes": {
+            "memoryLimitBytes": "2147483648"
+          },
+          "servers": {
+            "tomcat8-debug": {
+              "attributes": {},
+              "port": "8000",
+              "protocol": "http"
+            },
+            "springbootWebApi": {
+              "attributes": {},
+              "port": "8081",
+              "protocol": "http"
+            },
+            "springboot": {
+              "attributes": {},
+              "port": "8080",
+              "protocol": "http"
+            }
+          },
+          "volumes": {},
+          "installers": [
+            "org.eclipse.che.exec",
+            "org.eclipse.che.terminal",
+            "org.eclipse.che.ws-agent"
+          ],
+          "env": {
+            "CHE_MACHINE_NAME": "dev-machine"
+          }
+        }
+      },
+      "recipe": {
+        "type": "compose",
+        "content": "services:\n db:\n  image: eclipse/mysql\n  environment:\n   MYSQL_ROOT_PASSWORD: password\n   MYSQL_DATABASE: training\n   MYSQL_USER: muit\n   MYSQL_PASSWORD: password\n  mem_limit: 1073741824\n dev-machine:\n  image: registry.centos.org/che-stacks/spring-boot\n  mem_limit: 2147483648\n  depends_on:\n   - db\n",
+        "contentType": "application/x-yaml"
+      }
+    }
+  },
+  "projects": [
+    {
+      "links": [],
+      "name": "bookshare",
+      "attributes": {},
+      "type": "blank",
+      "source": {
+        "location": "ssh://git@gitlab.training-4-you.org:50000/hiromi.takahashi/bookshare.git",
+        "type": "git",
+        "parameters": {}
+      },
+      "path": "/bookshare",
+      "description": "",
+      "problems": [],
+      "mixins": []
+    }
+  ],
+  "name": "bookshare",
+  "commands": [
+    {
+      "commandLine": "scl enable rh-maven33 'mvn install -f ${current.project.path}'",
+      "name": "build",
+      "attributes": {
+        "goal": "Build",
+        "previewUrl": ""
+      },
+      "type": "mvn"
+    },
+    {
+      "commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'",
+      "name": "clean build",
+      "attributes": {
+        "goal": "Build",
+        "previewUrl": ""
+      },
+      "type": "mvn"
+    },
+    {
+      "commandLine": "scl enable rh-maven33 'mvn spring-boot:run -Drun.jvmArguments=\"-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005\" -f ${current.project.path}'",
+      "name": "debug",
+      "attributes": {
+        "goal": "Debug",
+        "previewUrl": "${server.springboot}"
+      },
+      "type": "custom"
+    },
+    {
+      "commandLine": "cd /projects/bookshare/webApp &&  ./gradlew bootRun",
+      "name": "webAppRun",
+      "attributes": {
+        "goal": "Run",
+        "previewUrl": "${server.springboot}/login"
+      },
+      "type": "custom"
+    },
+    {
+      "commandLine": "cd /projects/bookshare/restApiProvider &&  ./gradlew bootRun",
+      "name": "restApiProviderRun",
+      "attributes": {
+        "goal": "Run",
+        "previewUrl": "${server.springbootWebApi}/api/books"
+      },
+      "type": "custom"
+    }
+  ],
+  "links": []
+}
