@@ -76,10 +76,15 @@ public class StockService {
 	public void changeStatus(String id,String lentalUserName) {
 		Stock stock = rentalStatusRepository.findById(id).get();
 		
+		//他の人に借りられている状態なら何もしない
+		if (stock.getStatus().equals("rentaled")&&!(stock.getLentalUserName().equals(lentalUserName))) {
+			return;
+		}
+		
 		if (stock.getStatus().equals("free")) {
 			stock.setLentalUserName(lentalUserName);
 			stock.setStatus("rentaled");
-		}else {
+		} else {
 			stock.setLentalUserName("");
 			stock.setStatus("free");			
 		}
