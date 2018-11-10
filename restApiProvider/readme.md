@@ -3,7 +3,7 @@
 ## SpringFoxを使って、Swagger UI生成しています
 
  - 下記URLで各APIの仕様を確認することができます
- - http://localhost:8081/swagger-ui.html
+ - http://localhost:8081/swagger-ui.html?urls.primaryName=public
 
  - 下記URLでswagger yamlも取得可能です。
  - http://localhost:8081/v2/api-docs?group=public

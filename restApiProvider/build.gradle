@@ -23,6 +23,7 @@ repositories {
 	 maven {
         url 'https://repo.spring.io/libs-release'
     }
+     jcenter()
 }
 
 
@@ -36,14 +37,10 @@ dependencies {
 	runtime('com.h2database:h2')
 	
 	//For RestAPIドキュメント生成（Spring-fox）
-	compile "io.springfox:springfox-swagger2:2.2.2"
-    compile "io.springfox:springfox-swagger-ui:2.2.2"
-	compile('io.springfox:springfox-data-rest:2.7.0')
-
-//	compile('io.springfox:springfox-swagger2:2.7.0')
-//	compile('io.springfox:springfox-data-rest:2.9.0')
-//	compile('io.springfox:springfox-swagger-ui:2.7.0')
-	compile "com.google.guava:guava:17.0"
+	compile "io.swagger:swagger-annotations:1.5.16"
+	compile "io.springfox:springfox-swagger2:2.9.2"
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+	compile "com.google.guava:guava:23.0"
 	
 	compile 'org.springframework.data:spring-data-rest-webmvc'
 }
