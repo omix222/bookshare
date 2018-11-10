@@ -16,7 +16,7 @@ public class StockForm {
 	private String tags;
 	private String publisher;
 	private String place;
-	private String lentalUserId;
+	private String lentalUserName;
 	private String status;
 	public  StockForm() {
 		super();
@@ -69,12 +69,12 @@ public class StockForm {
 		this.place = place;
 	}
 
-	public String getLentalUserId() {
-		return lentalUserId;
+	public String getLentalUserName() {
+		return lentalUserName;
 	}
 
-	public void setLentalUserId(String lentalUserId) {
-		this.lentalUserId = lentalUserId;
+	public void setLentalUserName(String lentalUserName) {
+		this.lentalUserName = lentalUserName;
 	}
 
 	public String getStatus() {

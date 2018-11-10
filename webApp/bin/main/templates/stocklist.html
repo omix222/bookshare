@@ -1,16 +1,45 @@
-<html>
-<head><title>book list</title></head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../static/css/bootstrap.css"
+	th:href="@{css/bootstrap.css}" type="text/css" media="screen" />
+	<title>Book List</title>
+</head>
 <body>
-	<h2>Book List</h2>
-	<table border="1">
-		<thead><tr>
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+      <span class="sr-only">書籍貸出アプリ</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="#" class="navbar-brand">書籍貸出アプリ</a>
+  </div>
+ 
+  <div id="gnavi" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/stocklist">一覧参照＆貸出</a></li>
+      <li><a href="/bookregist">書籍登録</a></li>
+      <li><a href="/login?logout">ログアウト</a></li>
+    </ul>
+  </div>
+</nav>
+	<div class="container center-block">
+	<div class="wrapper ">
+	<p>login user: <td th:text="${name}">dummy username</td></p>
+	<h3 class="form-signin-heading">貸出書籍一覧＆貸出受付画面</h3>
+				<hr class="colorgraph">
+	<table border="1" class="table table-hover">
+		<thead><tr class="active">
 				<td>ID</td>
 				<td>Title</td>
 				<td>Author</td>
 				<td>Tags</td>
 				<td>Publisher</td>
-				<td>Place</td>
-				<td>LentalUserId</td>
+				<!-- <td>Place</td> -->
+				<td>LentalUserName</td>
 				<td>Status</td>
 				<td>Lental</td>
 		</tr></thead>
@@ -20,11 +49,13 @@
 				<td th:text="${book.author}">dummy Author</td>
 				<td th:text="${book.tags}">dummy Tags</td>
 				<td th:text="${book.publisher}">dummy Publisher</td>
-				<td th:text="${book.place}">dummy Place</td>
-				<td th:text="${book.lentalUserId}">dummy LentalUserId</td>
+				<!-- <td th:text="${book.place}">dummy Place</td> -->
+				<td th:text="${book.lentalUserName}">dummy LentalUserName</td>
 				<td th:text="${book.status}">dummy Status</td>
 				<td><a th:href="@{'/bookrental/' + ${book.id}}">Change Status</a></td>
 		</tr></tbody>
 	</table>
+	</div>
+	</div>
 </body>
 </html>

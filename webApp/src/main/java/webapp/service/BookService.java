@@ -13,7 +13,7 @@ import webapp.controller.entity.Book;
 @Service
 public class BookService {
 
-	@Value("http://localhost:8080/api/books")
+	@Value("http://localhost:8081/api/books")
 	public URI webRestApiProviderUrl;
 	
 	public List<Book>getBooks() {
@@ -23,11 +23,12 @@ public class BookService {
 		return books;
 	}
 
-	public void postBook(Book book) {
+	public Book postBook(Book book) {
 		RestTemplate restTemplate = new RestTemplate();
 		Book resultBook =restTemplate.postForObject(webRestApiProviderUrl, book, Book.class);
 		if (resultBook == null ) {
 			throw new RuntimeException("resultBook is null!!!");
 		}
+		return resultBook;
 	}
 }

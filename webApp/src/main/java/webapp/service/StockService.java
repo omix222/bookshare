@@ -20,17 +20,14 @@ import webapp.repository.StockRepository;
 @Service
 public class StockService {
 	
-	@Value("http://localhost:8080/api/books")
+	@Value("http://localhost:8081/api/books")
 	public URI webRestApiProviderUrl;
 	
 	@Autowired
 	StockRepository rentalStatusRepository;
 	
-	@Autowired
-	StockRepository repository;
-	
 	public Stock getStock(String bookId) {
-		return repository.findById(bookId).get();
+		return rentalStatusRepository.findById(bookId).get();
 	}
 	
 	public List<StockForm> getStocks(){
@@ -46,8 +43,9 @@ public class StockService {
 				StockForm stockForm = new StockForm();
 				for (Book bo : books) {
 					if (st.getTargetId().equals(bo.getId())) {
+						
 						stockForm.setId(st.getId());
-						stockForm.setLentalUserId(st.getLentalUserId());
+						stockForm.setLentalUserName(st.getLentalUserName());
 						stockForm.setPlace(st.getPlace());
 						stockForm.setStatus(st.getStatus());
 						stockForm.setTags(bo.getTags());
@@ -63,19 +61,28 @@ public class StockService {
 			return resultList;
 	}
 	
-	public Stock addStock(Stock stock) {
-		repository.save(stock);
-		return repository.findById(stock.getId()).get();
+	public Stock addStock(Book book) {
+		Stock stock = new Stock();
+		long bookCount = rentalStatusRepository.count();
+		stock.setId(String.valueOf(bookCount +1));
+		stock.setLentalUserName("");
+		stock.setPlace("");
+		stock.setTargetId(book.getId());
+		stock.setStatus("free");
+		rentalStatusRepository.save(stock);
+		return rentalStatusRepository.findById(stock.getId()).get();
 	}
 	
-	public void changeStatus(String id) {
-		Stock stock = repository.findById(id).get();
+	public void changeStatus(String id,String lentalUserName) {
+		Stock stock = rentalStatusRepository.findById(id).get();
 		
 		if (stock.getStatus().equals("free")) {
+			stock.setLentalUserName(lentalUserName);
 			stock.setStatus("rentaled");
 		}else {
+			stock.setLentalUserName("");
 			stock.setStatus("free");			
 		}
-		repository.save(stock);
+		rentalStatusRepository.save(stock);
 	}
 }

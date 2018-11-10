@@ -21,13 +21,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private PasswordEncoder passwordEncoder;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 		User user = null;
-		if (null == username || "".equals(username)) {
+		if (null == userId || "".equals(userId)) {
 			throw new UsernameNotFoundException("Username is empty");
 		} else {
-			Person person = personService.getPerson(username);
-			user = new User(person.getLastName() + " " + person.getFirstName(), passwordEncoder.encode(person.getPassword()),
+			Person person = personService.getPerson(userId);
+			user = new User(person.getLastName() + " " + person.getFirstName(), 
+					passwordEncoder.encode(person.getPassword()),
 					AuthorityUtils.createAuthorityList("ADMIN"));
 			}
 		

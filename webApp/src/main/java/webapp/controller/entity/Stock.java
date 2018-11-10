@@ -13,7 +13,7 @@ public class Stock {
 	private String id;
 	private String targetId;
 	private String place;
-	private String lentalUserId;
+	private String lentalUserName;
 	private String status;
 	public  Stock() {
 		super();
@@ -42,12 +42,12 @@ public class Stock {
 		this.place = place;
 	}
 
-	public String getLentalUserId() {
-		return lentalUserId;
+	public String getLentalUserName() {
+		return lentalUserName;
 	}
 
-	public void setLentalUserId(String lentalUserId) {
-		this.lentalUserId = lentalUserId;
+	public void setLentalUserName(String lentalUserName) {
+		this.lentalUserName = lentalUserName;
 	}
 
 	public String getStatus() {

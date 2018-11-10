@@ -1,14 +1,8 @@
 package demo.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- * @author hiromitakahashi
- *
- */
 @Entity	
 public class Person {
 

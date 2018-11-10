@@ -3,10 +3,6 @@ package webapp.controller.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * @author hiromitakahashi
- *
- */
 @Entity	
 public class Person {
 

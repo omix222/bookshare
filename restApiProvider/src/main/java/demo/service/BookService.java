@@ -22,6 +22,8 @@ public class BookService {
 	}
 	
 	public Book addBook(Book book) {
+		long bookCount = repository.count();
+		book.setId(String.valueOf(bookCount +1));
 		repository.save(book);
 		return repository.findById(book.getId()).get();
 	}

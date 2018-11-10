@@ -281,3 +281,19 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/hirom
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
 	... 67 more
+2018-11-08 21:21:55 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "'u001' (PERSON: ID BIGINT NOT NULL)"
+Data conversion error converting "'u001' (PERSON: ID BIGINT NOT NULL)"; SQL statement:
+UPDATE "PUBLIC"."PERSON" SET "ID"=? ,"FIRST_NAME"=? ,"LAST_NAME"=? ,"PASSWORD"=?  WHERE "ID"=? [22018-197]
+2018-11-08 21:21:55 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "'u001' (PERSON: ID BIGINT NOT NULL)"
+Data conversion error converting "'u001' (PERSON: ID BIGINT NOT NULL)"; SQL statement:
+UPDATE "PUBLIC"."PERSON" SET "ID"=? ,"FIRST_NAME"=? ,"LAST_NAME"=? ,"PASSWORD"=?  WHERE "ID"=? [22018-197]
+2018-11-08 21:23:20 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "DROP PERSON[*] "; 期待されるステートメント "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP PERSON[*] "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+drop person [42001-197]
+2018-11-08 21:23:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "DROP PERSON[*] "; 期待されるステートメント "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP PERSON[*] "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+drop person [42001-197]

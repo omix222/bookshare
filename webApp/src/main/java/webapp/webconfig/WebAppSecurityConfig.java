@@ -14,7 +14,7 @@ public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/h2-console/**");
+		web.ignoring().antMatchers("/h2-console/**","/css/**","/fonts/**","/html/**","/images/**","/js/**");
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter{
 			.anyRequest().authenticated(); // その他の全リクエストに対して認証を要求
 		http.formLogin() //
 			.loginPage("/login").usernameParameter("user").passwordParameter("password") // ログイン画面
-			.successForwardUrl("/booklist") // ログイン成功時に表示するURL
+			.successForwardUrl("/stocklist") // ログイン成功時に表示するURL
 			.permitAll();
 		http.logout() //
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // logoutUrl()はPOSTに対応していない

@@ -1,11 +1,8 @@
 package demo.entity;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
 /**
  * 本に関するエンティティ.
- *
  */
 @Entity	
 public class Book {
@@ -17,6 +14,8 @@ public class Book {
 	private String author;
 	private String tags;
 	private String publisher;
+	
+	
 	public String getId() {
 		return id;
 	}
