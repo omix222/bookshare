@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="demo.service.BookServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-04-29T09:37:39" hostname="hiromix222mbp.local" time="1.832">
+  <properties/>
+  <testcase name="addBook" classname="demo.service.BookServiceTest" time="1.645"/>
+  <testcase name="updateBook" classname="demo.service.BookServiceTest" time="0.012"/>
+  <testcase name="getBook" classname="demo.service.BookServiceTest" time="0.116"/>
+  <testcase name="deleteBook" classname="demo.service.BookServiceTest" time="0.015"/>
+  <testcase name="getBooks" classname="demo.service.BookServiceTest" time="0.039"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

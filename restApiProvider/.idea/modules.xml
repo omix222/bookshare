@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/restApiProvider.iml" filepath="$PROJECT_DIR$/restApiProvider.iml" group="restApiProvider" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/restApiProvider_main.iml" filepath="$PROJECT_DIR$/.idea/modules/restApiProvider_main.iml" group="restApiProvider" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/restApiProvider_test.iml" filepath="$PROJECT_DIR$/.idea/modules/restApiProvider_test.iml" group="restApiProvider" />
+    </modules>
+  </component>
+</project>
